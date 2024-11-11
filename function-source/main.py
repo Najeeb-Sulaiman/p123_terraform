@@ -115,5 +115,5 @@ def load_data_to_bigquery(data, context):
         raise
 
     finally:
-        # Log event metadata to BigQuery audit table
+        # Log event metadata to BigQuery audit table 
         log_event_to_audit_table(event_metadata)
