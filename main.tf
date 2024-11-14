@@ -63,10 +63,17 @@ resource "google_project_iam_member" "secretmanager_secret_accessor" {
   member  = "serviceAccount:${google_service_account.sa.email}"
 }
 
-# Assign Sservice Account Token Creator role
+# Assign Service Account Token Creator role
 resource "google_project_iam_member" "service_account_token_creator" {
   project = var.project
   role    = "roles/iam.serviceAccountTokenCreator"
+  member  = "serviceAccount:${google_service_account.sa.email}"
+}
+
+# Assign BigQuery Job User role
+resource "google_project_iam_member" "bigquery_job_user" {
+  project = var.project
+  role    = "roles/bigquery.jobUser"
   member  = "serviceAccount:${google_service_account.sa.email}"
 }
 
